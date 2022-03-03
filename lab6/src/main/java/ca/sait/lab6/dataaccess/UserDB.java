@@ -134,4 +134,23 @@ public class UserDB {
         return updated;
     }
 
+    public boolean delete(User user) throws Exception{
+
+            ConnectionPool cp = ConnectionPool.getInstance();
+            Connection con = cp.getConnection();
+            PreparedStatement ps = null;
+
+            String sql = "DELETE FROM user WHERE email = ?";
+            boolean deleted;
+            try{
+                ps = con.prepareStatement(sql);
+                ps.setString(1, user.getEmail());
+                deleted = ps.executeUpdate() !=0;
+            }finally{
+                DBUtil.closePreparedStatement(ps);
+                cp.freeConnection(con);
+            }
+            return deleted;
+        }
+
 }
