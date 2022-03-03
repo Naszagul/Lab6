@@ -44,7 +44,7 @@ public class UserServlet extends HttpServlet {
 
         catch(Exception e){Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, e);}
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
     }
 
     /**
@@ -59,7 +59,7 @@ public class UserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
     }
 
 }

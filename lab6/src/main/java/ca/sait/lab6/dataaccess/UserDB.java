@@ -12,6 +12,7 @@ import ca.sait.lab6.models.User;
  * @author Regan
  */
 public class UserDB {
+
     public List<User> getAll() throws Exception {
         List<User> users = new ArrayList<>();
         ConnectionPool cp = ConnectionPool.getInstance();
@@ -19,7 +20,7 @@ public class UserDB {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        String sql = "SELECT * FROM user INNER JOIN role ON role.role_id = user.role;";
+        String sql = "SELECT * FROM user INNER JOIN role ON role.role_id = user.role WHERE active != 0";
 
         try{
             ps = con.prepareStatement(sql);
