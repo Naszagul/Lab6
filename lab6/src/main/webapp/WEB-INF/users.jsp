@@ -23,13 +23,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="user" items="$(users)" >
+                            <c:forEach var="user" items="${users}" >
                                 <tr>
                                     <td>${user.email}</td>
                                     <td>${user.firstName}</td>
                                     <td>${user.lastName}</td>
                                     <td>${user.active ? "Y" : "N"}</td>
-                                    <td><a href="">Edit</a><a href="">Delete</a></td>
+                                    <td><a href="">Edit </a><a href="">Delete</a></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
